@@ -329,19 +329,6 @@ document.addEventListener('DOMContentLoaded', () => {
         socialItems[0].innerText = 'GitHub';
         socialItems[1].innerHTML = '<i class="fa-brands fa-steam"></i> Steam';
         socialItems[2].innerHTML = '<i class="fa-brands fa-discord"></i> bilol1bey';
-        if(lang === 'en') {
-            socialItems[0].innerText = 'GitHub';
-            socialItems[1].innerHTML = '<i class="fa-brands fa-steam"></i> Steam';
-            socialItems[2].innerHTML = '<i class="fa-brands fa-discord"></i> bilol1bey';
-        } else if(lang === 'ru') {
-            socialItems[0].innerText = 'Гитхаб';
-            socialItems[1].innerHTML = '<i class="fa-brands fa-steam"></i> Стим';
-            socialItems[2].innerHTML = '<i class="fa-brands fa-discord"></i> bilol1bey';
-        } else {
-            socialItems[0].innerText = 'GitHub';
-            socialItems[1].innerHTML = '<i class="fa-brands fa-steam"></i> Steam';
-            socialItems[2].innerHTML = '<i class="fa-brands fa-discord"></i> bilol1bey';
-        }
 
         // Footer
         document.querySelector('footer p').innerText = translations[lang].footer;
@@ -546,7 +533,7 @@ window.addEventListener('load', () => {
     
 
     let i = 0;
-    let txt = 'JavaScript olamiga xush kelibsan, Gojo!';
+    let txt = 'JavaScript saytiga xush kelibsiz!';
     function typeWriter() {
         if (i < txt.length) {
             process.stdout.write(txt.charAt(i)); 
