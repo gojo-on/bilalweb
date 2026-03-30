@@ -425,6 +425,13 @@ body {
     color: #1a1a1a !important;
     border: 1px solid #a855f7 !important;
 }
+.light-theme .social-item span,
+.light-theme .social-item {
+    color: #1a1a1a !important;
+}
+.light-theme .social-item img {
+    filter: brightness(0) invert(0) !important;
+}
 .light-theme .footer {
     color: #1a1a1a !important;
 }
