@@ -1,21 +1,20 @@
-// Initialize EmailJS with your public key
-emailjs.init('Zj_yJMKm7FpZ0qafw'); // To'g'ri public key
+emailjs.init('Zj_yJMKm7FpZ0qafw');
 
 window.addEventListener('load', () => {
     const loader = document.getElementById('loader-wrapper');   
 
-    // Hide loader after 2.5 seconds
+   
     setTimeout(() => {
         loader.style.opacity = '0';
         
-        // Animatsiya tugagandan keyin blokni butunlay o'chirish
+       
         setTimeout(() => {
             loader.style.display = 'none';
         }, 500); 
     }, 2500);
 });
 
-// Smooth scrolling for anchor links
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -25,7 +24,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Intersection Observer for card animations
+
 document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.card');
     
@@ -45,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(card);
     });
 
-    // Mobile menu toggle
+    
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('.nav-links');
     const mobileLang = document.querySelector('.mobile-lang-switcher');
@@ -55,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     menu.addEventListener('click', () => {
         menuLinks.classList.toggle('active');
         menu.classList.toggle('is-active');
-        // Show/hide mobile language switcher
+       
         if (menu.classList.contains('is-active')) {
             mobileLang.style.display = 'block';
         } else {
@@ -63,14 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Close menu when link is clicked
+
     document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click', () => {
         menuLinks.classList.remove('active');
         menu.classList.remove('is-active');
         mobileLang.style.display = 'none';
     }));
 
-    // Sync desktop and mobile language selects
+   
     langSelectDesktop.addEventListener('change', function() {
         langSelectMobile.value = this.value;
         switchLanguage(this.value);
@@ -80,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         switchLanguage(this.value);
     });
 
-    // Translation content
+
     const translations = {
         uz: {
             about: 'Men haqimda',
@@ -247,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     function switchLanguage(lang) {
-        // Navigation
+      
         const navLinks = document.querySelectorAll('.nav-links li a');
         navLinks[0].innerText = translations[lang].about;
         navLinks[1].innerText = translations[lang].skills;
@@ -257,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks[5].innerText = translations[lang].contact;
         navLinks[6].innerText = translations[lang].links;
 
-        // Hero
+      
         document.querySelector('.hero-text h1').innerText = translations[lang].heroTitle;
         document.querySelector('.hero-text .subtitle').innerText = translations[lang].heroSubtitle;
         document.querySelector('.hero-text .description').innerText = translations[lang].heroDesc;
@@ -266,7 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.buttons .btn-primary').innerText = translations[lang].telegram;
         document.querySelector('.buttons .btn-outline').innerText = translations[lang].instagram;
 
-        // About section
         document.querySelector('#about h2').innerText = translations[lang].aboutTitle;
         const cards = document.querySelectorAll('#about .card');
         cards[0].querySelector('h3').innerText = translations[lang].expTitle;
@@ -276,10 +274,8 @@ document.addEventListener('DOMContentLoaded', () => {
         cards[2].querySelector('h3').innerText = translations[lang].teamTitle;
         cards[2].querySelector('p').innerText = translations[lang].teamDesc;
 
-        // Skills section
         document.querySelector('#skills h2').innerText = translations[lang].skillsTitle;
 
-        // Projects section
         document.querySelector('#projects h2').innerText = translations[lang].projectsTitle;
         const projectCards = document.querySelectorAll('#projects .project-card');
         projectCards[0].querySelector('p').innerText = translations[lang].cyberfoodDesc;
@@ -291,12 +287,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const viewBtns = document.querySelectorAll('#projects .btn-outline');
         viewBtns.forEach(btn => btn.innerText = translations[lang].viewBtn);
 
-        // Team section
         document.querySelector('#team h2').innerText = translations[lang].teamJoinTitle;
         document.querySelector('#team p').innerText = translations[lang].teamJoinDesc;
         document.querySelector('#team .btn-team').innerText = translations[lang].joinTeamBtn;
 
-        // Commission section
         document.querySelector('#commission h2').innerText = translations[lang].commissionTitle;
         document.querySelector('#commission p').innerText = translations[lang].commissionDesc;
         const commForm = document.querySelector('#commission form');
@@ -312,7 +306,6 @@ document.addEventListener('DOMContentLoaded', () => {
         commForm.querySelector('input[name="deadline"]').placeholder = translations[lang].deadlinePlaceholder;
         commForm.querySelector('button[type="submit"]').innerText = translations[lang].orderBtn;
 
-        // Contact section
         document.querySelector('#contact h2').innerText = translations[lang].contactTitle;
         document.querySelector('#contact p').innerText = translations[lang].contactDesc;
         const contForm = document.querySelector('#contact form');
@@ -322,7 +315,6 @@ document.addEventListener('DOMContentLoaded', () => {
         contForm.querySelector('label[for="attachment"]').innerText = translations[lang].attachmentLabel;
         contForm.querySelector('button[type="submit"]').innerText = translations[lang].sendBtn;
 
-        // Links section
         document.querySelector('#links h2').innerText = translations[lang].linksTitle;
         // Social links
         const socialItems = document.querySelectorAll('#links .social-item span');
@@ -330,10 +322,8 @@ document.addEventListener('DOMContentLoaded', () => {
         socialItems[1].innerHTML = '<i class="fa-brands fa-steam"></i> Steam';
         socialItems[2].innerHTML = '<i class="fa-brands fa-discord"></i> bilol1bey';
 
-        // Footer
         document.querySelector('footer p').innerText = translations[lang].footer;
 
-        // Status messages (if status element exists)
         const statusEl = document.getElementById('status');
         if (statusEl) {
             const hour = new Date().getHours();
@@ -346,10 +336,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Set html lang attribute
         document.documentElement.lang = lang;
     }
-    // Dark mode toggle
+
     const themeBtn = document.createElement('button');
     themeBtn.id = "theme-toggle";
     themeBtn.innerText = "🌙";
@@ -362,7 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
         themeBtn.innerText = document.body.classList.contains('light-theme') ? "☀️" : "🌙";
     });
 
-    // Status update
+
     function updateStatus() {
         const statusText = document.getElementById('status');
         if (statusText) {
@@ -379,7 +368,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     setInterval(updateStatus, 1000);
 
-    // Discord nickname copy
+
     const discordBtn = document.getElementById('discord-btn');
     if(discordBtn) {
         discordBtn.addEventListener('click', () => {
@@ -395,7 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Back to top button
+
     const backToTopBtn = document.getElementById("backToTop");
     if (backToTopBtn) {
         window.addEventListener("scroll", () => {
@@ -414,7 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Animation observer for other elements
+
     const observerAnim = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -429,7 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observerAnim.observe(el);
     });
 
-    // Carousel pause on hover
+
     const carousel = document.querySelector('.carousel-container');
     if (carousel) {
         carousel.addEventListener('mouseenter', () => {
@@ -440,7 +429,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Project image modal
     const projectImages = document.querySelectorAll('.project-img');
     projectImages.forEach(img => {
         img.addEventListener('click', () => {
@@ -473,13 +461,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Contact form submission
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Send email using EmailJS
             emailjs.sendForm('service_y1tjg0l', 'template_jwxi2yg', this, 'Zj_yJMKm7FpZ0qafw')
                 .then(function() {
                     alert('Xabar muvaffaqiyatli yuborildi!');
@@ -490,13 +476,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Commission form submission
     const commissionForm = document.querySelector('.commission-form');
     if (commissionForm) {
         commissionForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Send email using EmailJS
             emailjs.sendForm('service_y1tjg0l', 'template_jwxi2yg', this, 'Zj_yJMKm7FpZ0qafw')
                 .then(function() {
                     alert('Buyurtma muvaffaqiyatli yuborildi! Tez orada siz bilan bog\'lanaman.');
@@ -542,7 +526,7 @@ window.addEventListener('load', () => {
     }
     console.log("%c " + txt, "color: #a855f7; font-size: 20px; font-weight: bold;");
 });
-// 1. Dark Mode tugmasini Navbarga qo'shish
+
 const navMenu = document.getElementById('nav-menu');
 const themeBtn = document.createElement('button');
 themeBtn.id = "theme-toggle";
@@ -556,7 +540,7 @@ themeBtn.addEventListener('click', () => {
     themeBtn.innerText = document.body.classList.contains('light-theme') ? "☀️" : "🌙";
 });
 
-// 2. Mobil Menyu Funktsiyasi
+
 const mobileMenu = document.getElementById('mobile-menu');
 const navLinks = document.querySelector('.nav-links');
 
@@ -564,7 +548,7 @@ mobileMenu.addEventListener('click', () => {
     navLinks.classList.toggle('active');
 });
 
-// 3. Link bosilganda menyuni yopish
+
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
@@ -597,14 +581,12 @@ const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
 console.log("%c" + randomQuote, "color: #a855f7; font-style: italic;");
 
 
-// Discord nikini nusxalash
 const discordBtn = document.getElementById('discord-btn');
 if(discordBtn) {
     discordBtn.addEventListener('click', () => {
         const nick = "bilol1bey";
         navigator.clipboard.writeText(nick);
         
-        // Foydalanuvchiga xabar berish
         const originalText = document.getElementById('discord-nick').innerText;
         document.getElementById('discord-nick').innerText = "Nusxalandi! ✅";
         
@@ -616,7 +598,7 @@ if(discordBtn) {
     });
 }
 
-// Steam va GitHub ga bosilganda maxsus xabar
+
 document.querySelectorAll('.social-item').forEach(item => {
     item.addEventListener('click', (e) => {
         if(e.currentTarget.tagName === 'A') {
@@ -627,13 +609,13 @@ document.querySelectorAll('.social-item').forEach(item => {
 
 
 
-// Sayt to'liq yuklangandan keyin ishlasin
+
 document.addEventListener("DOMContentLoaded", () => {
     
-    // --- 1. TEPAGA QAYTISH TUGMASI ---
+
     const backToTopBtn = document.getElementById("backToTop");
 
-    if (backToTopBtn) { // Agar tugma HTMLda bo'lsa
+    if (backToTopBtn) { 
         window.addEventListener("scroll", () => {
             if (window.scrollY > 400) {
                 backToTopBtn.style.display = "block";
@@ -650,7 +632,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- 2. ANIMATSIYA (Sen yoqtirgan bomba qism) ---
+  
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
