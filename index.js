@@ -1,5 +1,3 @@
-emailjs.init('Zj_yJMKm7FpZ0qafw');
-
 window.addEventListener('load', () => {
     const loader = document.getElementById('loader-wrapper');   
 
@@ -106,6 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
             cyberfoodDesc: 'Oziq-ovqat yetkazib berish ilovasi.',
             gojoCssDesc: 'CSS imtihon loyihasi.',
             gojoWebDesc: 'Web development loyihasi.',
+            gojoClockDesc: 'Soat ilovasi.',
+            gojoCalculatorDesc: 'Kalkulyator ilovasi.',
             projectSoon: 'Yangi loyiha tez orada.',
             viewBtn: 'Ko\'rish',
             teamJoinTitle: 'Jamoamga qo\'shiling',
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
             attachmentLabel: 'Rasm qo\'shish (ixtiyoriy)',
             sendBtn: 'Yuborish',
             linksTitle: 'Mening tarmoqlarim',
-            footer: '© 2026 Bilal Web. Barcha huquqlar himoyalangan.',
+            footer: '© 2026 GOJO-ON. Barcha huquqlar himoyalangan.',
             statusWorking: 'Hozir: Yangi loyihalar ustida ishlayapman 🚀',
             statusLearning: 'Hozir: JavaScript o\'rganmoqdaman 📚',
             statusSleeping: 'Hozir: Dam olayotganman 😴'
@@ -160,6 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
             cyberfoodDesc: 'Food delivery application.',
             gojoCssDesc: 'CSS exam project.',
             gojoWebDesc: 'Web development project.',
+            gojoClockDesc: 'Clock application.',
+            gojoCalculatorDesc: 'Calculator application.',
             projectSoon: 'New project soon.',
             viewBtn: 'View',
             teamJoinTitle: 'Join Our Team',
@@ -184,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
             attachmentLabel: 'Add image (optional)',
             sendBtn: 'Send',
             linksTitle: 'My Networks',
-            footer: '© 2026 Bilal Web. All rights reserved.',
+            footer: '© 2026 GOJO-ON. All rights reserved.',
             statusWorking: 'Now: Working on new projects 🚀',
             statusLearning: 'Now: Learning JavaScript 📚',
             statusSleeping: 'Now: Resting 😴'
@@ -214,6 +216,8 @@ document.addEventListener('DOMContentLoaded', () => {
             cyberfoodDesc: 'Приложение для доставки еды.',
             gojoCssDesc: 'Проект экзамена по CSS.',
             gojoWebDesc: 'Проект веб-разработки.',
+            gojoClockDesc: 'Приложение часов.',
+            gojoCalculatorDesc: 'Приложение калькулятора.',
             projectSoon: 'Новый проект скоро.',
             viewBtn: 'Посмотреть',
             teamJoinTitle: 'Присоединяйтесь к нашей команде',
@@ -238,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
             attachmentLabel: 'Добавить изображение (опционально)',
             sendBtn: 'Отправить',
             linksTitle: 'Мои сети',
-            footer: '© 2026 Bilal Web. Все права защищены.',
+            footer: '© 2026 GOJO-ON. Все права защищены.',
             statusWorking: 'Сейчас: Работаю над новыми проектами 🚀',
             statusLearning: 'Сейчас: Изучаю JavaScript 📚',
             statusSleeping: 'Сейчас: Отдыхаю 😴'
@@ -262,8 +266,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.hero-text .description').innerText = translations[lang].heroDesc;
 
         // Buttons
-        document.querySelector('.buttons .btn-primary').innerText = translations[lang].telegram;
-        document.querySelector('.buttons .btn-outline').innerText = translations[lang].instagram;
+        document.getElementById('hero-telegram').innerText = translations[lang].telegram;
+        document.getElementById('hero-instagram').innerText = translations[lang].instagram;
 
         document.querySelector('#about h2').innerText = translations[lang].aboutTitle;
         const cards = document.querySelectorAll('#about .card');
@@ -281,10 +285,10 @@ document.addEventListener('DOMContentLoaded', () => {
         projectCards[0].querySelector('p').innerText = translations[lang].cyberfoodDesc;
         projectCards[1].querySelector('p').innerText = translations[lang].gojoCssDesc;
         projectCards[2].querySelector('p').innerText = translations[lang].gojoWebDesc;
-        projectCards[3].querySelector('p').innerText = translations[lang].projectSoon;
-        projectCards[4].querySelector('p').innerText = translations[lang].projectSoon;
+        projectCards[3].querySelector('p').innerText = translations[lang].gojoClockDesc;
+        projectCards[4].querySelector('p').innerText = translations[lang].gojoCalculatorDesc;
         projectCards[5].querySelector('p').innerText = translations[lang].projectSoon;
-        const viewBtns = document.querySelectorAll('#projects .btn-outline');
+        const viewBtns = document.querySelectorAll('#projects .project-view-btn');
         viewBtns.forEach(btn => btn.innerText = translations[lang].viewBtn);
 
         document.querySelector('#team h2').innerText = translations[lang].teamJoinTitle;
@@ -316,11 +320,15 @@ document.addEventListener('DOMContentLoaded', () => {
         contForm.querySelector('button[type="submit"]').innerText = translations[lang].sendBtn;
 
         document.querySelector('#links h2').innerText = translations[lang].linksTitle;
-        // Social links
-        const socialItems = document.querySelectorAll('#links .social-item span');
-        socialItems[0].innerText = 'GitHub';
-        socialItems[1].innerHTML = '<i class="fa-brands fa-steam"></i> Steam';
-        socialItems[2].innerHTML = '<i class="fa-brands fa-discord"></i> bilol1bey';
+        const telegramLink = document.querySelector('#links a[href*="t.me"] span');
+        const githubLink = document.querySelector('#links a[href*="github.com"] span');
+        const steamLink = document.querySelector('#links a[href*="steamcommunity.com"] span');
+        const discordNick = document.getElementById('discord-nick');
+
+        if (telegramLink) telegramLink.innerHTML = '<i class="fa-brands fa-telegram"></i> @gojo_onn';
+        if (githubLink) githubLink.innerText = 'GitHub';
+        if (steamLink) steamLink.innerHTML = '<i class="fa-brands fa-steam"></i> Steam';
+        if (discordNick) discordNick.innerHTML = '<i class="fa-brands fa-discord"></i> bilol1bey';
 
         document.querySelector('footer p').innerText = translations[lang].footer;
 
@@ -461,17 +469,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    const EMAILJS_PUBLIC_KEY = 'Zj_yJMKm7FpZ0qafw';
+    const EMAILJS_SERVICE_ID = 'service_1c21e9s';
+    const EMAILJS_CONTACT_TEMPLATE_ID = 'template_woizcro';
+    const EMAILJS_COMMISSION_TEMPLATE_ID = 'template_jwxi2yg';
+
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            emailjs.sendForm('service_y1tjg0l', 'template_jwxi2yg', this, 'Zj_yJMKm7FpZ0qafw')
-                .then(function() {
+
+            const nameField = this.querySelector('input[name="name"]');
+            const messageField = this.querySelector('textarea[name="message"]');
+            const fromNameHidden = this.querySelector('input[name="from_name"]');
+            const subjectHidden = this.querySelector('input[name="subject"]');
+            const descriptionHidden = this.querySelector('input[name="description"]');
+
+            if (fromNameHidden && nameField) {
+                fromNameHidden.value = nameField.value;
+            }
+            if (subjectHidden && nameField) {
+                subjectHidden.value = `Aloqa: ${nameField.value}`;
+            }
+            if (messageField && descriptionHidden) {
+                descriptionHidden.value = messageField.value || 'Aloqa so\'rovi';
+            }
+
+            emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_CONTACT_TEMPLATE_ID, this)
+                .then(() => {
                     alert('Xabar muvaffaqiyatli yuborildi!');
-                    contactForm.reset();
-                }, function(error) {
-                    alert('Xato yuz berdi: ' + JSON.stringify(error));
+                    this.reset();
+                }, (error) => {
+                    console.error('EmailJS error:', error);
+                    alert('Xato yuz berdi: Iltimos, EmailJS sozlamalarini tekshiring.');
                 });
         });
     }
@@ -480,16 +512,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (commissionForm) {
         commissionForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            emailjs.sendForm('service_y1tjg0l', 'template_jwxi2yg', this, 'Zj_yJMKm7FpZ0qafw')
-                .then(function() {
+
+            emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_COMMISSION_TEMPLATE_ID, this)
+                .then(() => {
                     alert('Buyurtma muvaffaqiyatli yuborildi! Tez orada siz bilan bog\'lanaman.');
-                    commissionForm.reset();
-                }, function(error) {
-                    alert('Xato yuz berdi: ' + JSON.stringify(error));
+                    this.reset();
+                }, (error) => {
+                    console.error('EmailJS error:', error);
+                    alert('Xato yuz berdi: Iltimos, EmailJS sozlamalarini tekshiring.');
                 });
         });
-    }});
+    }
+});
 
 
 
@@ -513,62 +547,14 @@ if(profileImg) {
 
 window.addEventListener('load', () => {
     const mainTitle = document.querySelector('.hero-text h1');
-    mainTitle.style.borderRight = "3px solid #a855f7";
-    
-
-    let i = 0;
-    let txt = 'JavaScript saytiga xush kelibsiz!';
-    function typeWriter() {
-        if (i < txt.length) {
-            process.stdout.write(txt.charAt(i)); 
-            i++;
-        }
+    if (mainTitle) {
+        mainTitle.style.borderRight = "3px solid #a855f7";
     }
+
+    const txt = 'JavaScript saytiga xush kelibsiz!';
     console.log("%c " + txt, "color: #a855f7; font-size: 20px; font-weight: bold;");
 });
 
-const navMenu = document.getElementById('nav-menu');
-const themeBtn = document.createElement('button');
-themeBtn.id = "theme-toggle";
-themeBtn.innerText = "🌙";
-const li = document.createElement('li');
-li.appendChild(themeBtn);
-navMenu.appendChild(li);
-
-themeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('light-theme');
-    themeBtn.innerText = document.body.classList.contains('light-theme') ? "☀️" : "🌙";
-});
-
-
-const mobileMenu = document.getElementById('mobile-menu');
-const navLinks = document.querySelector('.nav-links');
-
-mobileMenu.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-});
-
-
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-    });
-});
-
-
-function updateStatus() {
-    const statusText = document.getElementById('status');
-    const hour = new Date().getHours();
-    
-    if (hour >= 9 && hour < 18) {
-        statusText.innerText = "Hozir: Yangi loyihalar ustida ishlayapman 🚀";
-    } else if (hour >= 18 && hour < 23) {
-        statusText.innerText = "Hozir: JavaScript o'rganyapman 📚";
-    } else {
-        statusText.innerText = "Hozir: Dam olyapman (Zzz...) 😴";
-    }
-}
-setInterval(updateStatus, 1000);
 
 const quotes = [
     "Dasturlash - bu sehrgarlik, faqat tayoqcha o'rniga klaviatura!",
@@ -610,41 +596,4 @@ document.querySelectorAll('.social-item').forEach(item => {
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    
-
-    const backToTopBtn = document.getElementById("backToTop");
-
-    if (backToTopBtn) { 
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 400) {
-                backToTopBtn.style.display = "block";
-            } else {
-                backToTopBtn.style.display = "none";
-            }
-        });
-
-        backToTopBtn.addEventListener("click", () => {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        });
-    }
-
-  
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    const hiddenElements = document.querySelectorAll('.banner, .adv-item, .good-card, .consult-item');
-    hiddenElements.forEach((el) => {
-        el.classList.add('hidden-animation');
-        observerAnim.observe(el);
-    });
-});
 
