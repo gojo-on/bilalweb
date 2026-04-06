@@ -31,8 +31,8 @@ body {
 }
 
 .loader {
-    border: 6px solid rgba(255, 255, 255, 0.1); /* Orqa fon xira oq */
-    border-top: 6px solid var(--primary-color); /* Sening yashil ranging */
+    border: 6px solid rgba(255, 255, 255, 0.1);
+    border-top: 6px solid var(--primary-color); 
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -42,7 +42,7 @@ body {
 #loader-wrapper p {
     margin-top: 20px;
     font-family: 'Poppins', sans-serif;
-    color: #ffffff; /* Matn oq rangda yaxshi ko'rinadi */
+    color: #ffffff; 
     font-size: 14px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -54,7 +54,7 @@ body {
 }
 
 
-/* Navbar Asosiy Stili */
+
 .navbar {
     position: fixed;
     top: 0;
@@ -170,11 +170,11 @@ body {
 
 .nav-links a:hover { color: var(--primary-color); }
 
-/* Dark Mode Tugmasi Stili */
+
 #theme-toggle {
     background: #2d2d45;
     border: 1px solid var(--primary-color);
-    color: white;
+    color: #2d2d45;
     cursor: pointer;
     padding: 5px 10px;
     border-radius: 8px;
@@ -199,12 +199,6 @@ body {
     background: #fff;
     margin: 5px;
     transition: 0.4s;
-}
-@media (max-width: 900px) {
-    .menu-toggle {
-        display: block;
-        background: #a855f7;
-    }
 }
 
 
@@ -713,7 +707,7 @@ body {
     100% { transform: translateX(-50%); }
 }
 
-/* Light theme adjustments */
+
 .light-theme .contact-form {
     background: #ffffff;
     border: 1px solid #ddd;
@@ -758,7 +752,7 @@ body {
 
 @media (max-width: 600px) {
     .carousel-container {
-        animation: scroll 40s linear infinite; /* Even slower on mobile */
+        animation: scroll 40s linear infinite; 
         gap: 15px;
     }
     
@@ -840,6 +834,13 @@ body {
         transition: 0.4s;
     }
     .nav-links.active { right: 0; }
+}
+
+@media (max-width: 900px) {
+    .menu-toggle {
+        display: block;
+        background: #a855f7;
+    }
 }
 
 carusel {

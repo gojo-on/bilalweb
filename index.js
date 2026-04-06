@@ -1,4 +1,13 @@
 window.addEventListener('load', () => {
+    const mainTitle = document.querySelector('.hero-text h1');
+    if (mainTitle) {
+        mainTitle.style.borderRight = "3px solid #a855f7";
+    }
+
+    const txt = "IF YOU NEVER TRY , YOU ' LL NEVER KNOW";
+    console.log("%c " + txt, "color: #a855f7; font-size: 20px; font-weight: bold;");
+});
+window.addEventListener('load', () => {
     const loader = document.getElementById('loader-wrapper');   
 
    
@@ -11,6 +20,7 @@ window.addEventListener('load', () => {
         }, 500); 
     }, 2500);
 });
+
 
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -540,31 +550,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const profileImg = document.querySelector('.hero-image img');
 if(profileImg) {
     profileImg.addEventListener('mouseover', () => {
-        console.log("Gojo, kimsan rasmga tegayotgan? 😎");
+        console.log("Gojo, photo");
     });
 }
 
 
-window.addEventListener('load', () => {
-    const mainTitle = document.querySelector('.hero-text h1');
-    if (mainTitle) {
-        mainTitle.style.borderRight = "3px solid #a855f7";
-    }
 
-    const txt = 'JavaScript saytiga xush kelibsiz!';
-    console.log("%c " + txt, "color: #a855f7; font-size: 20px; font-weight: bold;");
-});
 
 
 const quotes = [
-    "Dasturlash - bu sehrgarlik, faqat tayoqcha o'rniga klaviatura!",
-    "Xato (Bug) - bu shunchaki kutilmagan imkoniyat.",
-    "JavaScript o'rganish - bu kelajakka eng yaxshi investitsiya.",
-    "To'xtama, Gojo! Eng zo'r kod hali yozilmadi."
+    "Do what is Hard Until in becomes Easy.",
+    "Never stop learing , because life never stop teaching."
 ];
 
 const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-console.log("%c" + randomQuote, "color: #a855f7; font-style: italic;");
+console.log("%c" + randomQuote, "color: #a855f7; font-style: roboto;");
 
 
 const discordBtn = document.getElementById('discord-btn');
@@ -580,7 +580,7 @@ if(discordBtn) {
             document.getElementById('discord-nick').innerText = originalText;
         }, 2000);
         
-        console.log("Discord nik nusxalandi: " + nick);
+        console.log("Discord nik nusxalandi✅: " + nick);
     });
 }
 
@@ -588,7 +588,7 @@ if(discordBtn) {
 document.querySelectorAll('.social-item').forEach(item => {
     item.addEventListener('click', (e) => {
         if(e.currentTarget.tagName === 'A') {
-            console.log("Gojo'ning profiliga yo'naltirilmoqda...");
+            console.log(" profiliga yo'naltirilmoqda...");
         }
     });
 });
