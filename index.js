@@ -439,9 +439,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const carousel = document.querySelector('.carousel-container');
     if (carousel) {
+        const items = carousel.querySelectorAll('.project-card');
+        items.forEach(item => {
+            const clone = item.cloneNode(true);
+            carousel.appendChild(clone);
+        });
+
         carousel.addEventListener('mouseenter', () => {
             carousel.style.animationPlayState = 'paused';
         });
+
         carousel.addEventListener('mouseleave', () => {
             carousel.style.animationPlayState = 'running';
         });
